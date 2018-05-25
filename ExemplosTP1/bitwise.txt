@@ -1,0 +1,21 @@
+#Teste de chamada de procedimento e operacoes logicas
+
+in $20 						#Le o primeiro valor
+in $21 						#Le o segundo valor
+jal PROC 					#Jump para o procedimento
+out $22 					#Imprime todos os resultados
+out $23
+out $24
+out $25
+out $26
+out $27
+out $28
+halt
+PROC: and $22, $20, $21 	#Inicia o teste das operacoes logicas
+andi $23, $22, 1
+or $24, $20, $21
+ori $25, $24, 5461
+xor $26, $20, $21
+sll $27, $20, 2
+srl $28, $21, 1
+jr $31 						#Ponto de retorno do procedimento

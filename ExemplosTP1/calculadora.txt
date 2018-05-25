@@ -1,0 +1,27 @@
+#Uma calculadora simples com dois operandos
+#Lista de operacoes:
+#0 = soma
+#1 = subtracao
+#2 = multiplicacao
+#3 = divisao
+
+in $1					#Le o primeiro operando
+in $2					#Le o segundo operando
+in $3					#Le a operacao a ser realizada
+beq $3, $0, SOM 		#Branches para a operacao correta
+addi $3, $3, -1
+beq $3, $0, SUB
+addi $3, $3, -1
+beq $3, $0, MUL
+addi $3, $3, -1
+beq $3, $0, DIV
+j FIM
+SOM: add $4, $1, $2 	#Executa as operacoes
+j FIM
+SUB: sub $4, $1, $2
+j FIM
+MUL: mult $4, $1, $2
+j FIM
+DIV: div $4, $1, $2
+FIM: out $4 			#Imprime o resultado
+halt

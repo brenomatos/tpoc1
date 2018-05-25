@@ -1,0 +1,18 @@
+#Se $1 == 0 -> STORE
+#Se $1 != 0 -> LOAD
+#$2 indica o endereco de memoria
+#Se $2 == 0, termina o programa
+#$3 guarda o valor carregado pelo load
+#ou $3 recebe o valor a ser ecrito pelo store
+
+INIT: in $1 		#Le o tipo de operacao
+in $2 				#Le o endereco de memoria
+beq $2, $0, FIM 	#Se o endereco for 0, termina o programa
+beq $1, $0, STORE
+LOAD: lw $3, 0($2) 	#Executa o load e imprime o valor
+out $3
+j INIT
+STORE: in $3 		#Executa o store
+sw $3, 0($2)
+j INIT
+FIM: halt

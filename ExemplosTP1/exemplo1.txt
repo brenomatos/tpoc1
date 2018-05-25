@@ -1,0 +1,8 @@
+#Exemplo da especificacao
+#Imprime a soma de dois numeros lidos da entrada
+
+in $1
+in $2
+add $3, $2, $1
+out $3
+halt

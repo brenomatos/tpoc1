@@ -1,0 +1,16 @@
+#Recebe dois inteiros da entrada padrao
+#e imprime o maior dos dois
+
+in $1 					#Le o primeiro inteiro
+in $2 					#Le o segundo inteiro
+bne $1, $2, DIF
+out $1 					#Se $1 == $2
+halt
+DIF: sub $3, $1, $2
+bgtz $3, UM
+bltz $3, DOIS
+halt
+UM: out $1 				#Se $1 > $2
+halt
+DOIS: out $2 			#Se $1 < $2
+halt
