@@ -2,6 +2,7 @@
 #include <stdlib.h>
 
 int registrador[32];//registradores
+int memoria[10000000];
 
 void func_R(int d, int s, int t, int shift, int funct){//se o opcode eh 0, decide aqui dentro
     if (funct == 64) {//ADD
@@ -82,10 +83,12 @@ void simula(int opcode, int d, int s, int t, int shift, int funct, int I){
   }
   else if (opcode == 3) {//JAL
     JUMP I;
-    SAVE PC;
+    registrador[31] = program_counter;//SAVE PC;
+
   }
   //instrucoes extras
   else if (opcode == 127) {//HALT
+    exit(); //finaliza o programa
     FINALIZA O PROGRAMA;
   }
   else if (opcode == 126) {//IN
